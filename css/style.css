@@ -1,0 +1,129 @@
+@import "./fonts.css";
+@import "./normalize.css";
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  background: linear-gradient(90deg, #2bc2cd, #ac68d3, #d1bffe);
+}
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+.hero {
+  padding: 15px;
+  height: 100vh;
+}
+.title-game {
+  margin: 0;
+  margin-bottom: 25px;
+  text-align: center;
+}
+.start-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+.game-display {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.form__input {
+  width: 300px;
+  height: 35px;
+  border: 2px solid #edc5df;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+.form__input::placeholder {
+  opacity: 0.4;
+}
+.btn {
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2bc2cd;
+  cursor: pointer;
+}
+.btn-again {
+  width: 250px;
+  margin: 0 auto;
+}
+.card-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 15px;
+  row-gap: 15px;
+  margin-bottom: 20px;
+}
+
+.card {
+  position: relative;
+  max-width: 120px;
+  width: 100%;
+  height: 120px;
+  cursor: pointer;
+}
+.card__front,
+.card__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background-color: #606060;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transition: transform 0.6s ease-in-out, background-color 0.3s ease-in-out,
+    color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.card__front {
+  background-image: url(../img/bg-card.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: rotateY(0deg);
+}
+.card__back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 68px;
+  color: #fff;
+  transform: rotateY(180deg);
+}
+.card--open > .card__front {
+  transform: rotateY(-180deg);
+}
+.card--open > .card__back {
+  transform: rotateY(0deg);
+}
+.card--done > .card__front {
+  transform: rotateY(-180deg) scale(0.97);
+}
+.card--done > .card__back {
+  transform: rotateY(0deg) scale(0.97);
+  background-color: #009933;
+  color: #606060;
+  opacity: 0.3;
+}
+.info {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  font-size: 34px;
+  color: #013913;
+}
